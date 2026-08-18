@@ -4,32 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Distribuidora de Embalagens | Loja Oficial</title>
-    <!-- Tailwind CSS para o Layout -->
-    <script src="https://jsdelivr.net"></script>
+    <!-- Tailwind CSS Versão Estável 3.4.1 (Corrige o erro de conexão) -->
+    <script src="https://tailwindcss.com"></script>
     <!-- FontAwesome para os Ícones -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        .bg-elite-dark { bg: #0B0F19; }
-        .text-elite-blue { color: #00D2FF; }
-        .bg-elite-blue { bg: #00D2FF; }
-    </style>
+    <!-- Seu arquivo de estilo personalizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
     <!-- CABEÇALHO / NAVBAR -->
-    <header class="bg-[#0B0F19] text-white sticky top-0 z-50 shadow-md">
+    <header class="sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <!-- Substitua 'logo.png' pela sua logo oficial no GitHub -->
-                <img src="logo.png" alt="Elite Distribuidora" class="h-12 w-auto onerror="this.src='https://placeholder.com'">
+                <!-- Se logo.png falhar, o JavaScript alternativo abaixo assume sem quebrar -->
+                <img src="logo.png" alt="Elite Distribuidora" class="h-12 w-auto" onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')">
+                <span id="logo-fallback" class="hidden font-black text-xl tracking-wider text-[#00D2FF]">ELITE EMBALAGENS</span>
             </div>
             <nav class="hidden md:flex space-x-6 font-medium">
-                <a href="#" class="hover:text-[#00D2FF] transition">Início</a>
-                <a href="#catalogo" class="hover:text-[#00D2FF] transition">Produtos</a>
-                <a href="#valores" class="hover:text-[#00D2FF] transition">Quem Somos</a>
+                <a href="#" class="active">Início</a>
+                <a href="#catalogo">Produtos</a>
+                <a href="#valores">Quem Somos</a>
             </nav>
             <div class="flex items-center space-x-4">
-                <button onclick="toggleCarrinho()" class="relative cursor-pointer hover:text-[#00D2FF] transition">
+                <button onclick="toggleCarrinho()" class="relative cursor-pointer text-white hover:text-[#00D2FF] transition">
                     <i class="fa-solid fa-cart-shopping text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
                 </button>
@@ -42,11 +40,11 @@
     </header>
 
     <!-- BANNER PRINCIPAL (HERO) -->
-    <section class="bg-gradient-to-r from-[#0B0F19] to-[#1E293B] text-white py-16 px-4">
-        <div class="container mx-auto text-center max-w-3xl">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Elite Distribuidora de Embalagens</h1>
+    <section class="hero-section text-white py-20 px-4 text-center">
+        <div class="container mx-auto max-w-3xl relative z-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gradient-elite">Elite Distribuidora de Embalagens</h1>
             <p class="text-lg md:text-xl text-gray-300 mb-8">Soluções completas de embalagens industriais, comerciais e para delivery com as melhores condições de pagamento online.</p>
-            <a href="#catalogo" class="bg-[#00D2FF] hover:bg-[#00B4D8] text-[#0B0F19] font-bold px-8 py-3 rounded-full text-lg shadow-lg transition">Ver Catálogo Virtual</a>
+            <a href="#catalogo" class="btn-elite-primary font-bold px-8 py-3 rounded-full text-lg shadow-lg inline-block">Ver Catálogo Virtual</a>
         </div>
     </section>
 
@@ -73,9 +71,9 @@
 
     <!-- CATÁLOGO VIRTUAL DE PRODUTOS -->
     <main id="catalogo" class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold mb-8 border-b-4 border-[#00D2FF] inline-block pb-2">Nosso Catálogo</h2>
+        <h2 class="section-title text-3xl">Nosso Catálogo</h2>
         <div id="produtos-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Os produtos serão gerados automaticamente via JavaScript -->
+            <!-- Gerado via JavaScript -->
         </div>
     </main>
 
@@ -84,10 +82,10 @@
         <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between">
             <div>
                 <div class="flex justify-between items-center border-b pb-4 mb-4">
-                    <h3 class="text-xl font-bold text-[#0B0F19]"><i class="fa-solid fa-cart-shopping mr-2"></i>Seu Pedido</h3>
+                    <h3 class="text-xl font-bold text-[#0B1426]"><i class="fa-solid fa-cart-shopping mr-2"></i>Seu Pedido</h3>
                     <button onclick="toggleCarrinho()" class="text-2xl font-bold hover:text-red-500 cursor-pointer">&times;</button>
                 </div>
-                <div id="itens-carrinho" class="space-y-4 overflow-y-auto max-h-[60vh]">
+                <div id="itens-carrinho" class="space-y-4 overflow-y-auto max-h-[60vh] pr-2">
                     <!-- Itens adicionados aparecem aqui -->
                 </div>
             </div>
@@ -96,11 +94,11 @@
                     <span>Total estimado:</span>
                     <span id="total-carrinho" class="text-green-600">R$ 0,00</span>
                 </div>
-                <button onclick="checkoutOnline()" class="w-full bg-[#0B0F19] text-white hover:bg-black font-bold py-3 rounded-lg mb-2 transition flex items-center justify-center space-x-2">
+                <button onclick="checkoutOnline()" class="w-full btn-elite-dark font-bold py-3 rounded-lg mb-2 cursor-pointer flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-credit-card"></i>
                     <span>Pagar Online via Pix/Cartão</span>
                 </button>
-                <button onclick="enviarWhatsApp()" class="w-full bg-green-500 text-white hover:bg-green-600 font-bold py-3 rounded-lg transition flex items-center justify-center space-x-2">
+                <button onclick="enviarWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center space-x-2 transition">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span>Negociar Atacado no WhatsApp</span>
                 </button>
@@ -109,12 +107,12 @@
     </div>
 
     <!-- BOTÃO FIXO DO WHATSAPP -->
-    <a href="https://wa.me" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl text-2xl hover:bg-green-600 transition duration-300 z-40">
+    <a href="https://wa.me" target="_blank" class="whatsapp-floating">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- RODAPÉ -->
-    <footer class="bg-[#0B0F19] text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+    <footer class="text-gray-400 py-8 text-center text-sm">
         <p>&copy; 2026 Elite Distribuidora de Embalagens. Todos os direitos reservados.</p>
         <p class="mt-2 text-xs">WhatsApp Comercial: (45) 98818-6000</p>
     </footer>
