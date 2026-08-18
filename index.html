@@ -3,68 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusZone // GlowUp nos Estudos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Elite Distribuidora de Embalagens | Loja Oficial</title>
+    <!-- Tailwind CSS para o Layout -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- FontAwesome para os Ícones -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        .bg-elite-dark { bg: #0B0F19; }
+        .text-elite-blue { color: #00D2FF; }
+        .bg-elite-blue { bg: #00D2FF; }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Focus<span>Zone</span></h1>
-            <p>Monte seu timer e domine sua rotina</p>
-        </header>
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-        <main>
-            <!-- CARD DE STATUS DO JOGADOR (XP, NÍVEL E STREAK) -->
-            <section class="profile-card">
-                <div class="profile-header">
-                    <h2>✨ Seu Progresso</h2>
-                    <div class="badges">
-                        <span id="streak-display" class="badge-streak">🔥 0 dias</span>
-                        <span id="player-level" class="badge-level">Nível 1</span>
-                    </div>
-                </div>
-                <div class="xp-bar-container">
-                    <div class="xp-bar-fill" id="xp-fill"></div>
-                </div>
-                <div class="xp-text" id="xp-text">0 / 100 XP</div>
-            </section>
+    <!-- CABEÇALHO / NAVBAR -->
+    <header class="bg-[#0B0F19] text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Substitua 'logo.png' pela sua logo oficial no GitHub -->
+                <img src="logo.png" alt="Elite Distribuidora" class="h-12 w-auto onerror="this.src='https://placeholder.com'">
+            </div>
+            <nav class="hidden md:flex space-x-6 font-medium">
+                <a href="#" class="hover:text-[#00D2FF] transition">Início</a>
+                <a href="#catalogo" class="hover:text-[#00D2FF] transition">Produtos</a>
+                <a href="#valores" class="hover:text-[#00D2FF] transition">Quem Somos</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCarrinho()" class="relative cursor-pointer hover:text-[#00D2FF] transition">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+                <a href="https://wa.me" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold flex items-center space-x-2 transition text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span class="hidden sm:inline">Falar com Consultor</span>
+                </a>
+            </div>
+        </div>
+    </header>
 
-            <!-- CONFIGURAÇÃO -->
-            <section class="setup-card">
-                <h2>⚡ Personalizar Foco</h2>
-                <div class="input-group">
-                    <label for="materia">O que vai estudar hoje?</label>
-                    <input type="text" id="materia" placeholder="Ex: Redação, Física...">
-                </div>
-                <div class="input-group">
-                    <label for="tempo">Minutos de Foco:</label>
-                    <input type="number" id="tempo" value="25" min="1">
-                </div>
-                <button id="btn-inserir">Iniciar Missão 🚀</button>
-            </section>
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section class="bg-gradient-to-r from-[#0B0F19] to-[#1E293B] text-white py-16 px-4">
+        <div class="container mx-auto text-center max-w-3xl">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Elite Distribuidora de Embalagens</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">Soluções completas de embalagens industriais, comerciais e para delivery com as melhores condições de pagamento online.</p>
+            <a href="#catalogo" class="bg-[#00D2FF] hover:bg-[#00B4D8] text-[#0B0F19] font-bold px-8 py-3 rounded-full text-lg shadow-lg transition">Ver Catálogo Virtual</a>
+        </div>
+    </section>
 
-            <!-- TIMER E STATUS (COM PLAYLIST) -->
-            <section class="timer-card hidden" id="timer-section">
-                <h2 id="status-materia">Estudando: <span>---</span></h2>
-                <div class="clock" id="clock">25:00</div>
-                <div class="controls">
-                    <button id="btn-action">Pausar</button>
-                    <button id="btn-reset" class="secondary">Resetar</button>
-                </div>
+    <!-- TRÊS PILARES DA LOGO -->
+    <section id="valores" class="py-12 bg-white shadow-inner">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
+                <i class="fa-solid fa-award text-4xl text-[#00D2FF] mb-3"></i>
+                <h3 class="text-xl font-bold mb-2">Qualidade</h3>
+                <p class="text-gray-600">Materiais de alta resistência que garantem a segurança do seu produto final.</p>
+            </div>
+            <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
+                <i class="fa-solid fa-bolt text-4xl text-[#00D2FF] mb-3"></i>
+                <h3 class="text-xl font-bold mb-2">Praticidade</h3>
+                <p class="text-gray-600">Modelos funcionais que otimizam a rotina logística do seu negócio.</p>
+            </div>
+            <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
+                <i class="fa-solid fa-handshake text-4xl text-[#00D2FF] mb-3"></i>
+                <h3 class="text-xl font-bold mb-2">Confiança</h3>
+                <p class="text-gray-600">Pontualidade na entrega e transparência em todas as etapas da sua compra.</p>
+            </div>
+        </div>
+    </section>
 
-                                <!-- PLAYER DO YOUTUBE EMBUTIDO ATUALIZADO -->
-                <div class="playlist-container">
-                    <label>🎵 Trilha Sonora (Lofi Beats)</label>
-                    <iframe 
-                        id="youtube-player"
-                        src="https://youtube.com" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
+    <!-- CATÁLOGO VIRTUAL DE PRODUTOS -->
+    <main id="catalogo" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-8 border-b-4 border-[#00D2FF] inline-block pb-2">Nosso Catálogo</h2>
+        <div id="produtos-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Os produtos serão gerados automaticamente via JavaScript -->
+        </div>
+    </main>
 
-    <script src="script.js"></script>
+    <!-- MODAL DO CARRINHO DE COMPRAS SLIDEOUT -->
+    <div id="carrinho-modal" class="fixed inset-0 z-50 bg-black/50 hidden backdrop-blur-sm">
+        <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <h3 class="text-xl font-bold text-[#0B0F19]"><i class="fa-solid fa-cart-shopping mr-2"></i>Seu Pedido</h3>
+                    <button onclick="toggleCarrinho()" class="text-2xl font-bold hover:text-red-500 cursor-pointer">&times;</button>
+                </div>
+                <div id="itens-carrinho" class="space-y-4 overflow-y-auto max-h-[60vh]">
+                    <!-- Itens adicionados aparecem aqui -->
+                </div>
+            </div>
+            <div class="border-t pt-4 bg-gray-50 -mx-6 -mb-6 p-6">
+                <div class="flex justify-between items-center mb-4 font-bold text-lg">
+                    <span>Total estimado:</span>
+                    <span id="total-carrinho" class="text-green-600">R$ 0,00</span>
+                </div>
+                <button onclick="checkoutOnline()" class="w-full bg-[#0B0F19] text-white hover:bg-black font-bold py-3 rounded-lg mb-2 transition flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Pagar Online via Pix/Cartão</span>
+                </button>
+                <button onclick="enviarWhatsApp()" class="w-full bg-green-500 text-white hover:bg-green-600 font-bold py-3 rounded-lg transition flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Negociar Atacado no WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÃO FIXO DO WHATSAPP -->
+    <a href="https://wa.me" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl text-2xl hover:bg-green-600 transition duration-300 z-40">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-[#0B0F19] text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+        <p>&copy; 2026 Elite Distribuidora de Embalagens. Todos os direitos reservados.</p>
+        <p class="mt-2 text-xs">WhatsApp Comercial: (45) 98818-6000</p>
+    </footer>
+
+    <!-- Script de Funcionamento -->
+    <script src="app.js"></script>
 </body>
 </html>
