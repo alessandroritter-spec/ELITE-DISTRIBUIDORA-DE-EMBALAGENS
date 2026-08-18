@@ -1,0 +1,210 @@
+/* Cores Neon e Modo Escuro (Estética Cyberpunk/Studygram Dark) */
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #151d30;
+    --text-main: #ffffff;
+    --text-sub: #8a99ad;
+    --accent: #00ffcc;
+    --accent-hover: #00cc99;
+    --xp-color: #9d4edd;
+    --streak-color: #ff6b6b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header h1 span {
+    color: var(--accent);
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+}
+
+header p {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+.profile-card, .setup-card, .timer-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+/* Sistema de XP e Badges Visuais */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.badges {
+    display: flex;
+    gap: 8px;
+}
+
+.badge-level {
+    background: var(--xp-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+.badge-streak {
+    background: var(--streak-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.xp-bar-container {
+    width: 100%;
+    height: 12px;
+    background: #1f2942;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.xp-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--xp-color), #c77dff);
+    transition: width 0.5s ease-in-out;
+}
+
+.xp-text {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    text-align: right;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: #1f2942;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+button.secondary {
+    background: transparent;
+    color: var(--text-sub);
+    border: 1px solid #1f2942;
+    margin-top: 10px;
+}
+
+button.secondary:hover {
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+
+.clock {
+    font-size: 4.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    font-family: monospace;
+    color: var(--accent);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Estilização do Player do YouTube */
+.playlist-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.playlist-container iframe {
+    width: 100%;
+    height: 80px;
+    border-radius: 8px;
+    margin-top: 10px;
+    background: #000;
+}

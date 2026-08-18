@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusZone // GlowUp nos Estudos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Focus<span>Zone</span></h1>
+            <p>Monte seu timer e domine sua rotina</p>
+        </header>
+
+        <main>
+            <!-- CARD DE STATUS DO JOGADOR (XP, NÍVEL E STREAK) -->
+            <section class="profile-card">
+                <div class="profile-header">
+                    <h2>✨ Seu Progresso</h2>
+                    <div class="badges">
+                        <span id="streak-display" class="badge-streak">🔥 0 dias</span>
+                        <span id="player-level" class="badge-level">Nível 1</span>
+                    </div>
+                </div>
+                <div class="xp-bar-container">
+                    <div class="xp-bar-fill" id="xp-fill"></div>
+                </div>
+                <div class="xp-text" id="xp-text">0 / 100 XP</div>
+            </section>
+
+            <!-- CONFIGURAÇÃO -->
+            <section class="setup-card">
+                <h2>⚡ Personalizar Foco</h2>
+                <div class="input-group">
+                    <label for="materia">O que vai estudar hoje?</label>
+                    <input type="text" id="materia" placeholder="Ex: Redação, Física...">
+                </div>
+                <div class="input-group">
+                    <label for="tempo">Minutos de Foco:</label>
+                    <input type="number" id="tempo" value="25" min="1">
+                </div>
+                <button id="btn-inserir">Iniciar Missão 🚀</button>
+            </section>
+
+            <!-- TIMER E STATUS (COM PLAYLIST) -->
+            <section class="timer-card hidden" id="timer-section">
+                <h2 id="status-materia">Estudando: <span>---</span></h2>
+                <div class="clock" id="clock">25:00</div>
+                <div class="controls">
+                    <button id="btn-action">Pausar</button>
+                    <button id="btn-reset" class="secondary">Resetar</button>
+                </div>
+
+                                <!-- PLAYER DO YOUTUBE EMBUTIDO ATUALIZADO -->
+                <div class="playlist-container">
+                    <label>🎵 Trilha Sonora (Lofi Beats)</label>
+                    <iframe 
+                        id="youtube-player"
+                        src="https://youtube.com" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
