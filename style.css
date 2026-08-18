@@ -1,210 +1,249 @@
-/* Cores Neon e Modo Escuro (Estética Cyberpunk/Studygram Dark) */
+/* ==========================================================================
+   PALETA DE CORES OFICIAL - ELITE DISTRIBUIDORA DE EMBALAGENS
+   ========================================================================== */
 :root {
-    --bg-color: #0b0f19;
-    --card-bg: #151d30;
-    --text-main: #ffffff;
-    --text-sub: #8a99ad;
-    --accent: #00ffcc;
-    --accent-hover: #00cc99;
-    --xp-color: #9d4edd;
-    --streak-color: #ff6b6b;
+    --elite-black: #05070B;       /* Fundo ultra escuro da logo */
+    --elite-dark-blue: #0B1426;   /* Azul escuro profundo de contraste */
+    --elite-blue-metallic: #0066FF; /* Azul metálico intermediário */
+    --elite-blue-neon: #00D2FF;   /* Azul ciano brilhante/neon dos detalhes */
+    --elite-light-gray: #F8FAFC;  /* Fundo claro para o catálogo */
+    --elite-text-dark: #1E293B;   /* Texto escuro legível */
+    --elite-text-light: #FFFFFF;  /* Texto claro */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E SUAVIZAÇÃO
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    background-color: var(--elite-light-gray);
+    color: var(--elite-text-dark);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-.container {
-    width: 100%;
-    max-width: 450px;
+/* Ajuste fino para os textos em degradê metálico */
+.text-gradient-elite {
+    background: linear-gradient(135deg, var(--elite-text-light) 30%, var(--elite-blue-neon) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+/* ==========================================================================
+   CABECALHO E NAVBAR (ESTILO PREMIUM DARK)
+   ========================================================================== */
 header {
-    text-align: center;
-    margin-bottom: 30px;
+    background-color: var(--elite-black) !important;
+    border-bottom: 2px solid rgba(0, 210, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-header h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
+header nav a {
+    color: #94A3B8;
+    position: relative;
+    padding-bottom: 4px;
 }
 
-header h1 span {
-    color: var(--accent);
-    text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+header nav a:hover, 
+header nav a.active {
+    color: var(--elite-blue-neon) !important;
 }
 
-header p {
-    color: var(--text-sub);
-    font-size: 0.95rem;
-    margin-top: 5px;
+/* Linha decorativa animada sob os links do menu */
+header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--elite-blue-neon);
+    transition: width 0.3s ease;
 }
 
-.profile-card, .setup-card, .timer-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
-}
-
-/* Sistema de XP e Badges Visuais */
-.profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.badges {
-    display: flex;
-    gap: 8px;
-}
-
-.badge-level {
-    background: var(--xp-color);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
-}
-
-.badge-streak {
-    background: var(--streak-color);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-}
-
-.xp-bar-container {
+header nav a:hover::after {
     width: 100%;
-    height: 12px;
-    background: #1f2942;
-    border-radius: 6px;
+}
+
+/* ==========================================================================
+   HERO BANNER (EFEITO GLOW AZUL METÁLICO)
+   ========================================================================== */
+.hero-section {
+    background: radial-gradient(circle at top right, var(--elite-dark-blue), var(--elite-black)) !important;
+    position: relative;
     overflow: hidden;
-    margin-bottom: 8px;
 }
 
-.xp-bar-fill {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, var(--xp-color), #c77dff);
-    transition: width 0.5s ease-in-out;
+/* Brilho de fundo simulando o efeito neon circular da logo */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.xp-text {
-    font-size: 0.8rem;
-    color: var(--text-sub);
-    text-align: right;
-}
-
-h2 {
-    font-size: 1.2rem;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    margin-bottom: 8px;
+/* ==========================================================================
+   BOTÕES CUSTOMIZADOS E INTERAÇÕES
+   ========================================================================== */
+.btn-elite-primary {
+    background: linear-gradient(135deg, var(--elite-blue-metallic), var(--elite-blue-neon));
+    color: var(--elite-black) !important;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    background: #1f2942;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    border-color: var(--accent);
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    background: var(--accent);
-    color: #000;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-button:hover {
-    background: var(--accent-hover);
+.btn-elite-primary:hover {
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5);
+    filter: brightness(1.1);
 }
 
-button.secondary {
-    background: transparent;
-    color: var(--text-sub);
-    border: 1px solid #1f2942;
-    margin-top: 10px;
+.btn-elite-dark {
+    background-color: var(--elite-black);
+    color: var(--elite-text-light);
+    border: 1px solid var(--elite-blue-neon);
+    transition: all 0.3s ease;
 }
 
-button.secondary:hover {
-    background: rgba(255,255,255,0.05);
+.btn-elite-dark:hover {
+    background-color: var(--elite-blue-neon);
+    color: var(--elite-black) !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+/* ==========================================================================
+   VITRINE DE PRODUTOS E CARDS
+   ========================================================================== */
+.product-card {
+    background-color: var(--elite-text-light);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(11, 20, 38, 0.08);
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Título das seções simulando a borda inferior estilizada da logo */
+.section-title {
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    color: var(--elite-dark-blue);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--elite-blue-metallic), var(--elite-blue-neon));
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   CARRINHO LATERAL (SLIDEOUT MODAL)
+   ========================================================================== */
+#carrinho-modal .max-w-md {
+    background-color: var(--elite-text-light);
+    border-left: 3px solid var(--elite-blue-neon);
+}
+
+/* Customização da barra de rolagem interna do carrinho */
+#itens-carrinho::-webkit-scrollbar {
+    width: 6px;
+}
+
+#itens-carrinho::-webkit-scrollbar-track {
+    background: var(--elite-light-gray);
+}
+
+#itens-carrinho::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+}
+
+#itens-carrinho::-webkit-scrollbar-thumb:hover {
+    background: var(--elite-blue-metallic);
+}
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE DO WHATSAPP COM PULSO DE ATENÇÃO
+   ========================================================================== */
+.whatsapp-floating {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #25D366;
     color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
 }
 
-.clock {
-    font-size: 4.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-    font-family: monospace;
-    color: var(--accent);
+.whatsapp-floating:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #20BA5A;
 }
 
-.hidden {
-    display: none !important;
-}
-
-/* Estilização do Player do YouTube */
-.playlist-container {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.playlist-container iframe {
+/* Efeito de pulso discreto para conversão */
+.whatsapp-floating::before {
+    content: '';
+    position: absolute;
     width: 100%;
-    height: 80px;
-    border-radius: 8px;
-    margin-top: 10px;
-    background: #000;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #25D366;
+    opacity: 0.4;
+    z-index: -1;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: var(--elite-black) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
