@@ -4,149 +4,383 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Distribuidora de Embalagens | Loja Oficial</title>
-    <!-- Tailwind CSS Estável -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- FontAwesome para Ícones -->
+    <!-- Ícones de Suporte -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
-    <!-- ESTILOS INTEGRADOS (Garante o visual reflexivo azul e preto da logo) -->
     <style>
-        :root {
-            --elite-black: #05070B;       
-            --elite-dark-blue: #0B1426;   
-            --elite-blue-metallic: #0066FF; 
-            --elite-blue-neon: #00D2FF;   
-            --elite-light-gray: #F8FAFC;  
-            --elite-text-dark: #1E293B;   
-            --elite-text-light: #FFFFFF;  
+        /* --- ESTILOS NATIVOS COMPATÍVEIS COM QUALQUER NAVEGADOR --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--elite-light-gray); color: var(--elite-text-dark); }
-        .text-gradient-elite {
-            background: linear-gradient(135deg, var(--elite-text-light) 40%, var(--elite-blue-neon) 100%);
+
+        body {
+            background-color: #F8FAFC;
+            color: #1E293B;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: #05070B;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #00D2FF;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        nav a {
+            color: #94A3B8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #00D2FF;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-btn:hover {
+            color: #00D2FF;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #EF4444;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* HERO BANNER */
+        .hero {
+            background: radial-gradient(circle at top right, #0B1426, #05070B);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #FFFFFF 40%, #00D2FF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        header {
-            background-color: var(--elite-black) !important;
-            border-bottom: 2px solid rgba(0, 210, 255, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+        .hero p {
+            color: #94A3B8;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
         }
-        header nav a { color: #94A3B8; position: relative; padding-bottom: 4px; transition: color 0.3s ease; }
-        header nav a:hover, header nav a.active { color: var(--elite-blue-neon) !important; }
-        header nav a::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
-            background-color: var(--elite-blue-neon); transition: width 0.3s ease;
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0066FF, #00D2FF);
+            color: #05070B;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        header nav a:hover::after, header nav a.active::after { width: 100%; }
-        .hero-section { background: radial-gradient(circle at top right, var(--elite-dark-blue), var(--elite-black)) !important; }
-        .btn-elite-primary {
-            background: linear-gradient(135deg, var(--elite-blue-metallic), var(--elite-blue-neon));
-            color: var(--elite-black) !important; text-transform: uppercase; letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3); transition: all 0.3s ease;
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
         }
-        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5); filter: brightness(1.1); }
-        .btn-elite-dark {
-            background-color: var(--elite-black); color: var(--elite-text-light);
-            border: 1px solid var(--elite-blue-neon); transition: all 0.3s ease;
+
+        /* VALORES VALIDADOS DA LOGO */
+        .valores {
+            max-width: 1200px;
+            margin: -30px auto 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
-        .btn-elite-dark:hover { background-color: var(--elite-blue-neon); color: var(--elite-black) !important; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
-        .product-card { background-color: var(--elite-text-light); border: 1px solid rgba(226, 232, 240, 0.8); transition: all 0.3s ease; }
-        .product-card:hover { transform: translateY(-5px); border-color: rgba(0, 210, 255, 0.4); box-shadow: 0 10px 25px rgba(11, 20, 38, 0.08); }
-        .product-card img { transition: transform 0.5s ease; }
-        .product-card:hover img { transform: scale(1.04); }
-        .section-title { position: relative; padding-bottom: 12px; margin-bottom: 40px; font-weight: 800; color: var(--elite-dark-blue); }
+
+        .valor-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        .valor-card i {
+            font-size: 32px;
+            color: #00D2FF;
+            margin-bottom: 15px;
+        }
+
+        .valor-card h3 {
+            margin-bottom: 10px;
+            color: #0B1426;
+        }
+
+        .valor-card p {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        /* SEÇÃO DO CATÁLOGO */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #0B1426;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
         .section-title::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 4px;
-            background: linear-gradient(to right, var(--elite-blue-metallic), var(--elite-blue-neon)); border-radius: 2px;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #00D2FF;
+            border-radius: 2px;
         }
-        #carrinho-modal .max-w-md { background-color: var(--elite-text-light); border-left: 3px solid var(--elite-blue-neon); }
-        .whatsapp-floating {
-            position: fixed; bottom: 24px; right: 24px; background-color: #25D366; color: white;
-            width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 24px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 999; transition: all 0.3s ease;
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
         }
-        .whatsapp-floating:hover { transform: scale(1.1) rotate(5deg); background-color: #20BA5A; }
-        .whatsapp-floating::before {
-            content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%;
-            background-color: #25D366; opacity: 0.4; z-index: -1; animation: whatsapp-pulse 2s infinite;
+
+        .product-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-content: space-between;
+            flex-direction: column;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.3s, border-color 0.3s;
         }
-        @keyframes whatsapp-pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.5); opacity: 0; } }
-        footer { background-color: var(--elite-black) !important; border-top: 1px solid rgba(255, 255, 255, 0.05); }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- CABEÇALHO / NAVBAR -->
-    <header class="sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <!-- URL DIRETA INTEGRADA: Puxa a sua logo azul metalizada diretamente da nuvem -->
-                <img src="https://oaiusercontent.com" alt="Elite Distribuidora" class="h-12 w-auto" onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')">
-                <span id="logo-fallback" class="hidden font-black text-xl tracking-wider text-[#00D2FF]">ELITE EMBALAGENS</span>
-            </div>
-            <nav class="hidden md:flex space-x-6 font-medium">
-                <a href="#" class="active">Início</a>
-                <a href="#catalogo">Produtos</a>
-                <a href="#valores">Quem Somos</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <button onclick="toggleCarrinho()" class="relative cursor-pointer text-white hover:text-[#00D2FF] transition">
-                    <i class="fa-solid fa-cart-shopping text-xl"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
-                </button>
-                <a href="https://wa.me" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold flex items-center space-x-2 transition text-sm">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span class="hidden sm:inline">Falar com Consultor</span>
-                </a>
-            </div>
-        </div>
-    </header>
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #00D2FF;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
 
-    <!-- BANNER PRINCIPAL (HERO) -->
-    <section class="hero-section text-white py-20 px-4 text-center">
-        <div class="container mx-auto max-w-3xl relative z-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gradient-elite">Elite Distribuidora de Embalagens</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-8">Soluções completas de embalagens industriais, comerciais e para delivery com as melhores condições de pagamento online.</p>
-            <a href="#catalogo" class="btn-elite-primary font-bold px-8 py-3 rounded-full text-lg shadow-lg inline-block">Ver Catálogo Virtual</a>
-        </div>
-    </section>
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
 
-    <!-- VALORES INSTITUCIONAIS -->
-    <section id="valores" class="py-12 bg-white shadow-inner">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
-                <i class="fa-solid fa-award text-4xl text-[#00D2FF] mb-3"></i>
-                <h3 class="text-xl font-bold mb-2">Qualidade</h3>
-                <p class="text-gray-600">Materiais de alta resistência que garantem a segurança do seu produto final.</p>
-            </div>
-            <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
-                <i class="fa-solid fa-bolt text-4xl text-[#00D2FF] mb-3"></i>
-                <h3 class="text-xl font-bold mb-2">Praticidade</h3>
-                <p class="text-gray-600">Modelos funcionais que otimizam a rotina logística do seu negócio.</p>
-            </div>
-            <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
-                <i class="fa-solid fa-handshake text-4xl text-[#00D2FF] mb-3"></i>
-                <h3 class="text-xl font-bold mb-2">Confiança</h3>
-                <p class="text-gray-600">Pontualidade na entrega e transparência em todas as etapas da sua compra.</p>
-            </div>
-        </div>
-    </section>
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
 
-    <!-- CATÁLOGO VIRTUAL DE PRODUTOS -->
-    <main id="catalogo" class="container mx-auto px-4 py-16">
-        <h2 class="section-title text-3xl">Nosso Catálogo</h2>
-        <div id="produtos-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Inserido dinamicamente pelo JavaScript abaixo -->
-        </div>
-    </main>
+        .product-info h4 {
+            font-size: 16px;
+            color: #1E293B;
+            margin-bottom: 10px;
+        }
 
-    <!-- CARRINHO DE COMPRAS SLIDEOUT -->
-    <div id="carrinho-modal" class="fixed inset-0 z-50 bg-black/50 hidden backdrop-blur-sm">
-        <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between">
-            <div>
-                <div class="flex justify-between items-center border-b pb-4 mb-4">
-                    <h3 class="text-xl font-bold text-[#0B1426]"><i class="fa-solid fa-cart-shopping mr-2"></i>Seu Pedido</h3>
-                    <button onclick="toggleCarrinho()" class="text-2xl font-bold hover:text-red-500 cursor-pointer">&times;</button>
-                </div>
+        .product-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0B1426;
+            margin-bottom: 15px;
+        }
+
+        .btn-add {
+            background-color: #05070B;
+            color: white;
+            border: 1px solid #00D2FF;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-add:hover {
+            background-color: #00D2FF;
+            color: #05070B;
+        }
+
+        /* MODAL DO CARRINHO LATERAL */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            border-left: 4px solid #00D2FF;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-b: 1px solid #E2E8F0;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .cart-items-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .cart-item-remove {
+            color: #EF4444;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #E2E8F0;
+            padding-top: 15px;
+        }
+
+        .total-box {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            background-color: #05070B;
+            color: white;
+            border: 1px solid #00D2FF;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .btn-checkout:hover {
+            background-color: #00D2FF;
+            color: #05070B;
+        }
+
+        .btn-whatsapp-cart {
+            display: block;
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp-cart:hover {
