@@ -1,19 +1,13 @@
-/* ==========================================================================
-   PALETA DE CORES OFICIAL - ELITE DISTRIBUIDORA DE EMBALAGENS
-   ========================================================================== */
 :root {
-    --elite-black: #05070B;       /* Fundo ultra escuro da logo */
-    --elite-dark-blue: #0B1426;   /* Azul escuro profundo de contraste */
-    --elite-blue-metallic: #0066FF; /* Azul metálico intermediário */
-    --elite-blue-neon: #00D2FF;   /* Azul ciano brilhante/neon dos detalhes */
-    --elite-light-gray: #F8FAFC;  /* Fundo claro para o catálogo */
-    --elite-text-dark: #1E293B;   /* Texto escuro legível */
-    --elite-text-light: #FFFFFF;  /* Texto claro */
+    --elite-black: #05070B;       
+    --elite-dark-blue: #0B1426;   
+    --elite-blue-metallic: #0066FF; 
+    --elite-blue-neon: #00D2FF;   
+    --elite-light-gray: #F8FAFC;  
+    --elite-text-dark: #1E293B;   
+    --elite-text-light: #FFFFFF;  
 }
 
-/* ==========================================================================
-   CONFIGURAÇÕES GERAIS E SUAVIZAÇÃO
-   ========================================================================== */
 html {
     scroll-behavior: smooth;
 }
@@ -21,20 +15,14 @@ html {
 body {
     background-color: var(--elite-light-gray);
     color: var(--elite-text-dark);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
 }
 
-/* Ajuste fino para os textos em degradê metálico */
 .text-gradient-elite {
-    background: linear-gradient(135deg, var(--elite-text-light) 30%, var(--elite-blue-neon) 100%);
+    background: linear-gradient(135deg, var(--elite-text-light) 40%, var(--elite-blue-neon) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* ==========================================================================
-   CABECALHO E NAVBAR (ESTILO PREMIUM DARK)
-   ========================================================================== */
 header {
     background-color: var(--elite-black) !important;
     border-bottom: 2px solid rgba(0, 210, 255, 0.2);
@@ -45,6 +33,7 @@ header nav a {
     color: #94A3B8;
     position: relative;
     padding-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
 header nav a:hover, 
@@ -52,7 +41,6 @@ header nav a.active {
     color: var(--elite-blue-neon) !important;
 }
 
-/* Linha decorativa animada sob os links do menu */
 header nav a::after {
     content: '';
     position: absolute;
@@ -64,42 +52,23 @@ header nav a::after {
     transition: width 0.3s ease;
 }
 
-header nav a:hover::after {
+header nav a:hover::after,
+header nav a.active::after {
     width: 100%;
 }
 
-/* ==========================================================================
-   HERO BANNER (EFEITO GLOW AZUL METÁLICO)
-   ========================================================================== */
 .hero-section {
     background: radial-gradient(circle at top right, var(--elite-dark-blue), var(--elite-black)) !important;
     position: relative;
-    overflow: hidden;
 }
 
-/* Brilho de fundo simulando o efeito neon circular da logo */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* ==========================================================================
-   BOTÕES CUSTOMIZADOS E INTERAÇÕES
-   ========================================================================== */
 .btn-elite-primary {
     background: linear-gradient(135deg, var(--elite-blue-metallic), var(--elite-blue-neon));
     color: var(--elite-black) !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 .btn-elite-primary:hover {
@@ -121,13 +90,10 @@ header nav a:hover::after {
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
-/* ==========================================================================
-   VITRINE DE PRODUTOS E CARDS
-   ========================================================================== */
 .product-card {
     background-color: var(--elite-text-light);
     border: 1px solid rgba(226, 232, 240, 0.8);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 .product-card:hover {
@@ -141,10 +107,9 @@ header nav a:hover::after {
 }
 
 .product-card:hover img {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-/* Título das seções simulando a borda inferior estilizada da logo */
 .section-title {
     position: relative;
     padding-bottom: 12px;
@@ -164,35 +129,11 @@ header nav a:hover::after {
     border-radius: 2px;
 }
 
-/* ==========================================================================
-   CARRINHO LATERAL (SLIDEOUT MODAL)
-   ========================================================================== */
 #carrinho-modal .max-w-md {
     background-color: var(--elite-text-light);
     border-left: 3px solid var(--elite-blue-neon);
 }
 
-/* Customização da barra de rolagem interna do carrinho */
-#itens-carrinho::-webkit-scrollbar {
-    width: 6px;
-}
-
-#itens-carrinho::-webkit-scrollbar-track {
-    background: var(--elite-light-gray);
-}
-
-#itens-carrinho::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
-    border-radius: 3px;
-}
-
-#itens-carrinho::-webkit-scrollbar-thumb:hover {
-    background: var(--elite-blue-metallic);
-}
-
-/* ==========================================================================
-   BOTÃO FLUTUANTE DO WHATSAPP COM PULSO DE ATENÇÃO
-   ========================================================================== */
 .whatsapp-floating {
     position: fixed;
     bottom: 24px;
@@ -216,7 +157,6 @@ header nav a:hover::after {
     background-color: #20BA5A;
 }
 
-/* Efeito de pulso discreto para conversão */
 .whatsapp-floating::before {
     content: '';
     position: absolute;
@@ -230,19 +170,10 @@ header nav a:hover::after {
 }
 
 @keyframes whatsapp-pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.5); opacity: 0; }
 }
 
-/* ==========================================================================
-   RODAPÉ (FOOTER)
-   ========================================================================== */
 footer {
     background-color: var(--elite-black) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
