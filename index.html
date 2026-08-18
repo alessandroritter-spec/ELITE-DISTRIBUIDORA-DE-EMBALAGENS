@@ -9,7 +9,7 @@
     <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
-    <!-- ESTILOS EMBRULHADOS (Evita falhas de carregamento de arquivos externos) -->
+    <!-- ESTILOS INTEGRADOS (Garante o visual reflexivo azul e preto da logo) -->
     <style>
         :root {
             --elite-black: #05070B;       
@@ -82,7 +82,8 @@
     <header class="sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="logo.png" alt="Elite Distribuidora" class="h-12 w-auto" onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')">
+                <!-- URL DIRETA INTEGRADA: Puxa a sua logo azul metalizada diretamente da nuvem -->
+                <img src="https://oaiusercontent.com" alt="Elite Distribuidora" class="h-12 w-auto" onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')">
                 <span id="logo-fallback" class="hidden font-black text-xl tracking-wider text-[#00D2FF]">ELITE EMBALAGENS</span>
             </div>
             <nav class="hidden md:flex space-x-6 font-medium">
@@ -107,12 +108,12 @@
     <section class="hero-section text-white py-20 px-4 text-center">
         <div class="container mx-auto max-w-3xl relative z-10">
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gradient-elite">Elite Distribuidora de Embalagens</h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-8">Soluções completas de embalagens industriais, comerciais e para delivery com as melhores conditions de pagamento online.</p>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">Soluções completas de embalagens industriais, comerciais e para delivery com as melhores condições de pagamento online.</p>
             <a href="#catalogo" class="btn-elite-primary font-bold px-8 py-3 rounded-full text-lg shadow-lg inline-block">Ver Catálogo Virtual</a>
         </div>
     </section>
 
-    <!-- PILARES INSTITUCIONAIS -->
+    <!-- VALORES INSTITUCIONAIS -->
     <section id="valores" class="py-12 bg-white shadow-inner">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div class="p-6 border border-gray-100 rounded-xl shadow-sm">
@@ -137,11 +138,11 @@
     <main id="catalogo" class="container mx-auto px-4 py-16">
         <h2 class="section-title text-3xl">Nosso Catálogo</h2>
         <div id="produtos-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Os itens serão gerados aqui pelo script abaixo -->
+            <!-- Inserido dinamicamente pelo JavaScript abaixo -->
         </div>
     </main>
 
-    <!-- MODAL DO CARRINHO DE COMPRAS SLIDEOUT -->
+    <!-- CARRINHO DE COMPRAS SLIDEOUT -->
     <div id="carrinho-modal" class="fixed inset-0 z-50 bg-black/50 hidden backdrop-blur-sm">
         <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between">
             <div>
@@ -149,10 +150,3 @@
                     <h3 class="text-xl font-bold text-[#0B1426]"><i class="fa-solid fa-cart-shopping mr-2"></i>Seu Pedido</h3>
                     <button onclick="toggleCarrinho()" class="text-2xl font-bold hover:text-red-500 cursor-pointer">&times;</button>
                 </div>
-                <div id="itens-carrinho" class="space-y-4 overflow-y-auto max-h-[60vh] pr-2">
-                    <!-- Itens entram via script -->
-                </div>
-            </div>
-            <div class="border-t pt-4 bg-gray-50 -mx-6 -mb-6 p-6">
-                <div class="flex justify-between items-center mb-4 font-bold text-lg">
-                    <span>Total estimado:</span>
